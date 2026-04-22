@@ -1,5 +1,7 @@
 def get_user_specs():
-    print("\n=== ВЪВЕЖДАНЕ НА ХАРДУЕР ===")
+    print("\n" + "=" * 40)
+    print("   ВЪВЕЖДАНЕ НА ХАРДУЕР")
+    print("=" * 40)
 
     while True:
         try:
@@ -11,6 +13,10 @@ def get_user_specs():
                 print("❌ Стойностите трябва да са положителни.\n")
                 continue
 
+            if gpu > 10:
+                print("❌ GPU трябва да е между 1 и 10.\n")
+                continue
+
             return {
                 "ram": ram,
                 "cpu": cpu,
@@ -18,4 +24,4 @@ def get_user_specs():
             }
 
         except ValueError:
-            print("❌ Моля въведи число.\n")
+            print("❌ Моля въведи валидни числа.\n")
