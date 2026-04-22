@@ -1,13 +1,17 @@
+import time
+import sys
+
 from hardware import get_user_specs
 from requirements import get_game_requirements, check_compatibility
 from doctor import give_advice
 from utils import calculate_health
 
 
+# ===== UI =====
 def print_header():
-    print("=" * 40)
-    print("      PC SPECS DOCTOR")
-    print("=" * 40)
+    print("=" * 45)
+    print("        PC SPECS DOCTOR")
+    print("=" * 45)
 
 
 def print_menu():
@@ -26,11 +30,37 @@ def get_game_choice():
     }
 
     choice = input("Избор: ")
+
+    if choice == "0":
+        return "0"
+
     return mapping.get(choice)
 
 
+# ===== REAL LOADING (етапи) =====
+def loading_steps():
+    steps = [
+        "Проверка на RAM",
+        "Проверка на CPU",
+        "Проверка на GPU",
+        "Сравнение с изисквания",
+        "Генериране на резултат"
+    ]
+
+    print("\n--- Анализ започва ---\n")
+
+    for step in steps:
+        print(step + "...", end="")
+        sys.stdout.flush()
+        time.sleep(0.7)
+        print(" ✔")
+
+    print("\n--- Анализ завършен ---\n")
+
+
+# ===== RESULT UI =====
 def print_result(is_ok, health, advice):
-    print("\n" + "=" * 40)
+    print("=" * 45)
 
     if is_ok:
         print("✅ Системата покрива изискванията!")
@@ -42,9 +72,10 @@ def print_result(is_ok, health, advice):
     print("\nПрепоръка:")
     print(advice)
 
-    print("=" * 40)
+    print("=" * 45)
 
 
+# ===== MAIN =====
 def main():
     print_header()
 
@@ -56,15 +87,18 @@ def main():
         print_menu()
         game = get_game_choice()
 
+        if game == "0":
+            print("\nИзход...")
+            break
+
         if game is None:
             print("❌ Невалиден избор.\n")
             continue
 
-        if game == "0":
-            print("Изход...")
-            break
-
         req = get_game_requirements(game)
+
+        # реален loading процес
+        loading_steps()
 
         is_ok = check_compatibility(user_specs, req)
         health = calculate_health(user_specs, req)
