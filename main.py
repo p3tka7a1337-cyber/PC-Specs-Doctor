@@ -1,11 +1,14 @@
 import time
 import sys
+import os
 
 from hardware import get_user_specs
 from requirements import get_game_requirements, check_compatibility
 from doctor import give_advice
 from utils import calculate_health
 
+def clear_console():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 # ===== UI =====
 def print_header():
@@ -61,7 +64,9 @@ def loading_steps():
 # ===== RESULT UI =====
 def print_result(is_ok, health, advice):
     print("=" * 45)
-
+    print("        РЕЗУЛТАТ ОТ АНАЛИЗА        ")
+    print("=" * 45)
+    
     if is_ok:
         print("✅ Системата покрива изискванията!")
     else:
@@ -84,6 +89,7 @@ def main():
         return
 
     while True:
+        clear_console()
         print_menu()
         game = get_game_choice()
 
