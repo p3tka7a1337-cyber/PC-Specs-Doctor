@@ -19,7 +19,8 @@ PC Specs Doctor е desktop приложение, което автоматичн
 ---
 
 ## 📸 Screenshot (optional)
-*(можеш да добавиш снимка тук)*
+<img width="900" height="570" alt="image" src="https://github.com/user-attachments/assets/7212aacf-2221-4918-ad7c-5cf75f6a44f5" />
+
 
 ---
 
