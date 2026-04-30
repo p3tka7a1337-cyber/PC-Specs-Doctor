@@ -13,6 +13,11 @@ games_db = {
         "ram": 4,
         "cpu": 2,
         "gpu": 3
+    },
+    "Valorant": {
+        "ram": 8,
+        "cpu": 4,
+        "gpu": 5
     }
 }
 
