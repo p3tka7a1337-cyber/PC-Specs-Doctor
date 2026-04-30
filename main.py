@@ -22,6 +22,7 @@ def print_menu():
     print("1. GTA 6")
     print("2. CS2")
     print("3. Minecraft")
+    print("4. Valorant")
     print("0. Изход")
 
 
@@ -29,7 +30,8 @@ def get_game_choice():
     mapping = {
         "1": "GTA 6",
         "2": "CS2",
-        "3": "Minecraft"
+        "3": "Minecraft",
+        "4": "Valorant"
     }
 
     choice = input("Избор: ")
