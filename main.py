@@ -87,6 +87,7 @@ def main():
         return
 
     while True:
+        clear_console()
         print_menu()
         game = get_game_choice()
 
