@@ -113,6 +113,7 @@ def main():
         advice = give_advice(user_specs, req)
 
         print_result(is_ok, health, advice)
+        input("\nНатисни Enter, за да се върнеш към менюто...")
 
 
 if __name__ == "__main__":
