@@ -5,7 +5,7 @@ def give_advice(user_specs, game_req):
     if user_specs['cpu'] < game_req['cpu']:
         advice.append(f"Процесорът е слаб (трябват поне {game_req['cpu']} ядра).")
     if user_specs['gpu'] < game_req['gpu']:
-        advice.append(f"Видеокартата е слаба (трябва поне {game_req['gpu']} RAM).")
+        advice.append(f"Видеокартата е слаба (трябва поне {game_req['gpu']} ниво).")
     if not advice:
         return "Системата е перфектна!"
     return "Съвет: " + " ".join(advice)
