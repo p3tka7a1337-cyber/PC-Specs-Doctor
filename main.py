@@ -64,7 +64,9 @@ def loading_steps():
 # ===== RESULT UI =====
 def print_result(is_ok, health, advice):
     print("=" * 45)
-
+    print("        РЕЗУЛТАТ ОТ АНАЛИЗА        ")
+    print("=" * 45)
+    
     if is_ok:
         print("✅ Системата покрива изискванията!")
     else:
